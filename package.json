@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@notionhq/client": "^2.2.13",
     "next": "latest",
     "next-http-proxy-middleware": "^1.2.5",
     "react": "latest",

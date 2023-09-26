@@ -9,15 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.13",
+    "next": "latest",
+    "next-http-proxy-middleware": "^1.2.5",
     "react": "latest",
-    "react-dom": "latest",
-    "next": "latest"
+    "react-dom": "latest"
   },
   "devDependencies": {
     "autoprefixer": "latest",
-    "postcss": "latest",
-    "tailwindcss": "latest",
     "eslint": "latest",
-    "eslint-config-next": "latest"
+    "eslint-config-next": "latest",
+    "postcss": "latest",
+    "tailwindcss": "latest"
   }
 }

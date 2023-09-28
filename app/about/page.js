@@ -4,6 +4,7 @@ import getConfig from 'next/config';
 
 const { publicRuntimeConfig } = getConfig();
 
+
 const About = () => {
     return (
         <main className="flex min-h-full box-border flex-col items-start justify-between px-5 pb-5 sm:px-10 sm:pb-10 lg:px-24 lg:pb-24">
@@ -12,7 +13,7 @@ const About = () => {
                 <BasilNotionOutline className="inline h-auto w-16 mr-6" />
                 <div>
                     <span className='text-lg font-bold leading-5'>Notion GTD Inboxer</span><br />
-                    <small>Version {publicRuntimeConfig?.version}</small>
+                    <small>Version {process.env.npm_package_version}</small>
                 </div>
             </div>
 

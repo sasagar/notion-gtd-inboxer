@@ -21,7 +21,7 @@ export default function Home() {
         <p>まずはSettingsページで設定をしましょう。対象となるdatabaseページのIDとAPIキーを入力します。<br />その後はInboxerページから入力して投稿するだけです！</p>
       </section>
 
-      <button className="w-80 btn bg-green-600 rounded-md border border-green-700 px-6 py-1 text-white hover:bg-green-500 hover:border-green-600 transition-all disabled:bg-green-300 disabeld:border-green-400"
+      <button className="w-80 btn bg-green-600 rounded-md border border-green-700 px-6 py-1 text-white hover:bg-green-500 hover:border-green-600 transition-all disabled:bg-green-300 disabeld:border-green-400 focus:outline-none"
         onClick={() => { router.push('/inboxer') }}>
         Inboxerを使ってみる
       </button>

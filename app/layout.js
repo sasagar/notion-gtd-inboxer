@@ -11,6 +11,7 @@ export const metadata = {
   description: 'Post to Inbox of Notion. For GTD.',
   genarator: 'Next.js',
   manifest: '/manifest.json',
+  themeColor: "#111827",
   authors: [{ name: 'SASAPIYO', url: 'https://kent-and-co.com' }],
   viewport: "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover",
 

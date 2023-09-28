@@ -91,8 +91,8 @@ const Title = (props) => {
                 </div>
             </div>
             <div className="flex justify-between">
-                <button className="btn bg-rose-600 rounded-md border border-rose-700 px-6 py-1 text-white hover:bg-rose-500 hover:border-rose-600 transition-all">Reset</button>
-                <button className="btn bg-green-600 rounded-md border border-green-700 px-6 py-1 text-white hover:bg-green-500 hover:border-green-600 transition-all disabled:bg-green-300 disabeld:border-green-400" onClick={inboxerToNotion}>
+                <button className="btn bg-rose-600 rounded-md border border-rose-700 px-6 py-1 text-white hover:bg-rose-500 hover:border-rose-600 transition-all focus:outline-none">Reset</button>
+                <button className="btn bg-green-600 rounded-md border border-green-700 px-6 py-1 text-white hover:bg-green-500 hover:border-green-600 transition-all disabled:bg-green-300 disabeld:border-green-400 focus:outline-none" onClick={inboxerToNotion}>
                     <SvgSpinnersRingResize className="hidden mr-2" id="spinner" />
                     Save
                 </button>

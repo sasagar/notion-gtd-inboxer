@@ -61,7 +61,7 @@ const SettingsForm = () => {
                 </div>
             </div>
             <div className="flex justify-between">
-                <button className="btn bg-blue-600 rounded-md border border-blue-700 px-6 py-1 text-white hover:bg-rose-500 hover:border-rose-600 transition-all" onClick={() => {
+                <button className="btn bg-blue-600 rounded-md border border-blue-700 px-6 py-1 text-white hover:bg-rose-500 hover:border-rose-600 transition-all focus:outline-none" onClick={() => {
                     router.push('/inboxer')
                 }}>Back</button >
             </div>

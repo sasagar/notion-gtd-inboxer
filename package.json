@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "next dev -p 3005",
+    "build": "npx license-checker --yes --json --out /public/data/licenses.json && next build",
+    "start": "next start -p 3005",
     "lint": "next lint"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.13",
     "next": "latest",
     "next-http-proxy-middleware": "^1.2.5",
     "react": "latest",

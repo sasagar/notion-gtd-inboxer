@@ -1,78 +1,77 @@
 "use client";
+import SvgSpinnersRingResize from "../icons/spinner";
 
-// const { Client } = require('@notionhq/client');
+const Title = (props) => {
+    const statusHandler = (code) => {
+        props.resultHandler(code);
+    }
 
-// const apikey = localStorage.getItem('key');
-
-// const notion = new Client({
-//     auth: apikey
-// });
-
-const Title = () => {
-    // const pageid = localStorage.getItem('pageid');
-    // const content = document.querySelector('#title').value;
-
-    // const inboxerToNotion = async () => {
-    //     try {
-    //         const response = await notion.pages.create({
-    //             "parent": {
-    //                 "type": "database_id",
-    //                 "database_id": pageid
-    //             },
-    //             "properties": {
-    //                 "Name": {
-    //                     "title": [
-    //                         {
-    //                             "text": {
-    //                                 "content": content
-    //                             }
-    //                         }
-    //                     ]
-    //                 },
-    //             },
-    //         });
-
-    //         console.dir(response);
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    const inboxerToNotion = async () => {
-        const url = '/api/notion';
-        const apikey = localStorage.getItem('key');
-        const pageid = localStorage.getItem('pageid');
+    const inboxerToNotion = async (event) => {
+        const button = event.currentTarget;
+        const spin = document.querySelector('#spinner');
+        button.disabled = true;
+        spin.classList.add("inline-block");
+        spin.classList.remove("hidden");
 
         const content = document.querySelector('#title').value;
+        if (!content) {
+            statusHandler(4000);
+            button.disabled = false;
+            spin.classList.remove("inline-block");
+            spin.classList.add("hidden");
+            return false;
+        }
+
+        const url = '/api/notion/pages';
+        const apikey = localStorage.getItem('apikey');
+        const pageid = localStorage.getItem('pageid');
 
         const headers = {
             'Authorization': `Bearer ${apikey}`,
             'Content-Type': 'application/json',
-            'Notion-Version': '2022-06-28'
+            'Notion-Version': '2022-06-28',
+            'mode': 'cors'
         };
-        console.dir(headers);
 
-        const body = {
+        const payload = {
             "parent": {
                 "type": "database_id",
                 "database_id": pageid
             },
             "properties": {
-                "Name": {
-                    "title": [
-                        {
-                            "text": {
-                                "content": content
-                            }
+                "title": [
+                    {
+                        "type": "text",
+                        "text": {
+                            content
                         }
-                    ]
-                },
-            },
+                    }
+                ]
+            }
         };
-        console.dir(body);
 
-        await fetch(url, { method: 'POST', headers, body })
-            .then((res) => {
-                console.log(res);
-            });
+        const options = {
+            "method": "post",
+            headers,
+            "body": JSON.stringify(payload)
+        }
+
+        // console.dir(options);
+
+        try {
+            const response = await fetch(url, options);
+            // const res = response.json();
+            statusHandler(Number(response.status));
+            // res.then((response) => {
+            //     console.log(response);
+            // })
+            document.querySelector('#title').value = "";
+        } catch (error) {
+            console.error(error);
+        }
+        button.disabled = false;
+        spin.classList.remove("inline-block");
+        spin.classList.add("hidden");
     }
 
     return (
@@ -86,14 +85,17 @@ const Title = () => {
                         type="text"
                         name="title"
                         id="title"
-                        className="block w-80 rounded-md border-0 py-1.5 px-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-80 rounded-md border-0 py-1.5 px-2 text-gray-900 ring-1 ring-inset ring-slate-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-slate-500 sm:text-sm sm:leading-6"
                         placeholder="Buy dinner."
                     />
                 </div>
             </div>
             <div className="flex justify-between">
                 <button className="btn bg-rose-600 rounded-md border border-rose-700 px-6 py-1 text-white hover:bg-rose-500 hover:border-rose-600 transition-all">Reset</button>
-                <button className="btn bg-green-600 rounded-md border border-green-700 px-6 py-1 text-white hover:bg-green-500 hover:border-green-600 transition-all" onClick={inboxerToNotion}>Save</button>
+                <button className="btn bg-green-600 rounded-md border border-green-700 px-6 py-1 text-white hover:bg-green-500 hover:border-green-600 transition-all disabled:bg-green-300 disabeld:border-green-400" onClick={inboxerToNotion}>
+                    <SvgSpinnersRingResize className="hidden mr-2" id="spinner" />
+                    Save
+                </button>
             </div>
         </div>
     )

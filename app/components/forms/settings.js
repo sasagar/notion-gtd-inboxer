@@ -8,11 +8,11 @@ const SettingsForm = () => {
 
     let lPageid, lKey;
     if (typeof window === 'object') {
-        lPageid = localStorage.getItem('pageid');
-        lKey = localStorage.getItem('key');
+        lPageid = localStorage.hasOwnProperty('pageid') ? localStorage.getItem('pageid') : "";
+        lKey = localStorage.hasOwnProperty('apikey') ? localStorage.getItem('apikey') : "";
     }
     const [pageid, setPageId] = useState(lPageid);
-    const [key, setKey] = useState(lKey);
+    const [apikey, setKey] = useState(lKey);
 
     const savePageId = (event) => {
         const value = event.target.value;
@@ -23,7 +23,7 @@ const SettingsForm = () => {
     const saveKey = async (event) => {
         const value = event.target.value;
         setKey(value);
-        localStorage.setItem('key', value);
+        localStorage.setItem('apikey', value);
     }
 
     return (
@@ -38,7 +38,7 @@ const SettingsForm = () => {
                         name="pageid"
                         id="pageid"
                         value={pageid}
-                        className="block w-80 rounded-md border-0 py-1.5 px-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-80 rounded-md border-0 py-1.5 px-2 text-gray-900 ring-1 ring-inset ring-slate-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-slate-500 sm:text-sm sm:leading-6"
                         placeholder="1234567890abcdef1234567890abcdef"
                         onChange={savePageId}
                     />
@@ -53,18 +53,17 @@ const SettingsForm = () => {
                         type="text"
                         name="secret"
                         id="secret"
-                        value={key}
-                        className="block w-80 rounded-md border-0 py-1.5 px-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        value={apikey}
+                        className="block w-80 rounded-md border-0 py-1.5 px-2 text-gray-900 ring-1 ring-inset ring-slate-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-slate-500 sm:text-sm sm:leading-6"
                         placeholder="secret_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
                         onChange={saveKey}
                     />
                 </div>
             </div>
             <div className="flex justify-between">
-                <button className="btn bg-rose-600 rounded-md border border-rose-700 px-6 py-1 text-white hover:bg-rose-500 hover:border-rose-600 transition-all" onClick={() => {
+                <button className="btn bg-blue-600 rounded-md border border-blue-700 px-6 py-1 text-white hover:bg-rose-500 hover:border-rose-600 transition-all" onClick={() => {
                     router.push('/inboxer')
-                }}>Cancel</button >
-                {/* <button className="btn bg-green-600 rounded-md border border-green-700 px-6 py-1 text-white hover:bg-green-500 hover:border-green-600 transition-all">Save</button> */}
+                }}>Back</button >
             </div>
         </div>
     )

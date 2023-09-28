@@ -1,13 +1,10 @@
 /** @type {import('next').NextConfig} */
+const { version } = require('./package.json');
+
 const nextConfig = {
-    trailingSlash: false,
-    async rewrites() {
-        return [
-            {
-                source: "/api/notion",
-                destination: "https://api.notion.com/v1/pages",
-            },
-        ];
+    reactStrictMode: false,
+    publicRuntimeConfig: {
+        version,
     },
 }
 

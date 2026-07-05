@@ -1,9 +1,5 @@
 import BasilNotionOutline from '../components/icons/notion';
-import getConfig from 'next/config';
 // import Licenses from '../components/licenses';
-
-const { publicRuntimeConfig } = getConfig();
-
 
 const About = () => {
     return (

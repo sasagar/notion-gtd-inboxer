@@ -7,13 +7,11 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Notion GTD Inboxer',
-  applecationName: 'Notion GTD Inboxer',
+  applicationName: 'Notion GTD Inboxer',
   description: 'Post to Inbox of Notion. For GTD.',
-  genarator: 'Next.js',
+  generator: 'Next.js',
   manifest: '/manifest.json',
-  themeColor: "#111827",
   authors: [{ name: 'SASAPIYO', url: 'https://kent-and-co.com' }],
-  viewport: "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover",
 
   openGraph: {
     type: "website",
@@ -33,6 +31,14 @@ export const metadata = {
     apple: "/icon-512x512.png",
     shortcut: "/icon-192x192.png",
   },
+}
+
+export const viewport = {
+  themeColor: "#111827",
+  width: "device-width",
+  initialScale: 1,
+  minimumScale: 1,
+  viewportFit: "cover",
 }
 
 export default function RootLayout({ children }) {

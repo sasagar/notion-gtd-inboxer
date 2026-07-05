@@ -32,7 +32,7 @@ const SettingsForm = () => {
                 <label htmlFor="pageid" className="block text-sm font-medium leading-6 text-gray-900">
                     Page ID
                 </label>
-                <div className="relative mt-2 rounded-md shadow-sm w-full">
+                <div className="relative mt-2 rounded-md shadow-xs w-full">
                     <input
                         type="text"
                         name="pageid"
@@ -48,7 +48,7 @@ const SettingsForm = () => {
                 <label htmlFor="secret" className="block text-sm font-medium leading-6 text-gray-900">
                     Notion API KEY
                 </label>
-                <div className="relative mt-2 rounded-md shadow-sm w-full">
+                <div className="relative mt-2 rounded-md shadow-xs w-full">
                     <input
                         type="text"
                         name="secret"
@@ -61,7 +61,7 @@ const SettingsForm = () => {
                 </div>
             </div>
             <div className="flex justify-between">
-                <button className="btn bg-blue-600 rounded-md border border-blue-700 px-6 py-1 text-white hover:bg-rose-500 hover:border-rose-600 transition-all focus:outline-none" onClick={() => {
+                <button className="btn bg-blue-600 rounded-md border border-blue-700 px-6 py-1 text-white hover:bg-rose-500 hover:border-rose-600 transition-all focus:outline-hidden" onClick={() => {
                     router.push('/inboxer')
                 }}>Back</button >
             </div>

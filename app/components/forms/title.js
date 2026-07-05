@@ -80,7 +80,7 @@ const Title = (props) => {
                 <label htmlFor="title" className="block text-sm font-medium leading-6 text-gray-900">
                     Title
                 </label>
-                <div className="relative mt-2 rounded-md shadow-sm w-full">
+                <div className="relative mt-2 rounded-md shadow-xs w-full">
                     <input
                         type="text"
                         name="title"
@@ -91,8 +91,8 @@ const Title = (props) => {
                 </div>
             </div>
             <div className="flex justify-between">
-                <button className="btn bg-rose-600 rounded-md border border-rose-700 px-6 py-1 text-white hover:bg-rose-500 hover:border-rose-600 transition-all focus:outline-none">Reset</button>
-                <button className="btn bg-green-600 rounded-md border border-green-700 px-6 py-1 text-white hover:bg-green-500 hover:border-green-600 transition-all disabled:bg-green-300 disabeld:border-green-400 focus:outline-none" onClick={inboxerToNotion}>
+                <button className="btn bg-rose-600 rounded-md border border-rose-700 px-6 py-1 text-white hover:bg-rose-500 hover:border-rose-600 transition-all focus:outline-hidden">Reset</button>
+                <button className="btn bg-green-600 rounded-md border border-green-700 px-6 py-1 text-white hover:bg-green-500 hover:border-green-600 transition-all disabled:bg-green-300 disabeld:border-green-400 focus:outline-hidden" onClick={inboxerToNotion}>
                     <SvgSpinnersRingResize className="hidden mr-2" id="spinner" />
                     Save
                 </button>

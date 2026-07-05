@@ -17,11 +17,11 @@
     "react-dom": "^19.2.7"
   },
   "devDependencies": {
-    "autoprefixer": "latest",
+    "@tailwindcss/postcss": "^4.3.2",
     "eslint": "latest",
     "eslint-config-next": "^16.2.10",
     "postcss": "latest",
     "serwist": "^9.5.11",
-    "tailwindcss": "latest"
+    "tailwindcss": "^4.3.2"
   }
 }
